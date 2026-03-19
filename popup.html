@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自定义软件背景图</title>
+  <style>
+    :root {
+      color-scheme: light;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 14px;
+      width: 360px;
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+    }
+
+    .panel {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 14px;
+      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 17px;
+    }
+
+    .row {
+      margin-top: 12px;
+    }
+
+    .label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      font-size: 13px;
+      color: #374151;
+    }
+
+    .path {
+      min-height: 44px;
+      max-height: 88px;
+      overflow: auto;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      padding: 8px;
+      background: #f9fafb;
+      font-size: 12px;
+      line-height: 1.4;
+      word-break: break-all;
+      color: #111827;
+    }
+
+    .btn {
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      padding: 9px 10px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: #ffffff;
+    }
+
+    .btn-secondary {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 13px;
+      color: #1f2937;
+    }
+
+    input[type="range"] {
+      width: 100%;
+    }
+
+    .status {
+      min-height: 18px;
+      margin-top: 10px;
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    .status.error {
+      color: #dc2626;
+    }
+
+    .status.success {
+      color: #16a34a;
+    }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <h1>自定义软件背景</h1>
+
+    <div class="row">
+      <div class="label">
+        <span>图片路径</span>
+      </div>
+      <div id="pathText" class="path">未选择图片</div>
+    </div>
+
+    <div class="row">
+      <button id="pickButton" class="btn btn-primary">选择本地图片</button>
+    </div>
+
+    <label class="toggle">
+      <input id="enabledToggle" type="checkbox">
+      <span>启用自定义背景</span>
+    </label>
+
+    <div class="row">
+      <div class="label">
+        <span>透明度</span>
+        <span id="opacityLabel">35%</span>
+      </div>
+      <input id="opacityRange" type="range" min="0" max="100" step="1">
+    </div>
+
+    <div class="actions">
+      <button id="clearButton" class="btn btn-secondary">清除</button>
+      <button id="saveButton" class="btn btn-primary">保存</button>
+    </div>
+
+    <div id="statusText" class="status"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

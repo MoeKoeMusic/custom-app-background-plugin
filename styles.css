@@ -1,0 +1,61 @@
+#moekoe-custom-app-bg-layer {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  transition: opacity 0.2s ease !important;
+}
+
+html.mk-custom-bg-enabled,
+html.mk-custom-bg-enabled body {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+html.mk-custom-bg-enabled {
+  --mk-surface-bg: rgba(255, 255, 255, 0.6);
+  --mk-surface-bg-weak: rgba(255, 255, 255, 0.62);
+  --mk-surface-blur: 10px;
+  --background-color: var(--mk-surface-bg) !important;
+  --background-color-secondary: var(--mk-surface-bg-weak) !important;
+}
+
+html.dark.mk-custom-bg-enabled {
+  --mk-surface-bg: rgba(20, 20, 20, 0.66);
+  --mk-surface-bg-weak: rgba(20, 20, 20, 0.52);
+}
+
+html.mk-custom-bg-enabled #app {
+  position: relative !important;
+  z-index: 1 !important;
+  background: transparent !important;
+}
+
+html.mk-custom-bg-enabled main {
+  background: transparent !important;
+}
+
+html.mk-custom-bg-enabled header,
+html.mk-custom-bg-enabled .search-bar input,
+html.mk-custom-bg-enabled .profile,
+html.mk-custom-bg-enabled .profile-menu,
+html.mk-custom-bg-enabled .queue-list,
+html.mk-custom-bg-enabled .context-menu,
+html.mk-custom-bg-enabled .extension-item,
+html.mk-custom-bg-enabled .market-item,
+html.mk-custom-bg-enabled .song-item,
+html.mk-custom-bg-enabled .modal-content,
+html.mk-custom-bg-enabled .playlist-select-modal,
+html.mk-custom-bg-enabled .player-container,
+html.mk-custom-bg-enabled .playlist-grid .playlist-item,
+html.mk-custom-bg-enabled .skeleton-loader .skeleton-item,
+html.mk-custom-bg-enabled .discover-page .music-card{
+  background: var(--mk-surface-bg) !important;
+  background-color: var(--mk-surface-bg) !important;
+  background-image: none !important;
+  backdrop-filter: blur(var(--mk-surface-blur)) !important;
+  -webkit-backdrop-filter: blur(var(--mk-surface-blur)) !important;
+}

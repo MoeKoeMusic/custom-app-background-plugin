@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "自定义背景图",
+  "plugin_id": "custom-app-background",
+  "version": "1.0.0",
+  "minversion": "1.6.1",
+  "moekoe": true,
+  "author": {
+    "name": "MoeKoe Music",
+    "url": "https://music.moekoe.cn/"
+  },
+  "description": "为MoeKoe Music提供自定义背景图能力，支持透明度调节。",
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "自定义应用背景"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
