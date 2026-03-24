@@ -4,6 +4,7 @@
   const STORAGE_KEY = "customAppBackground";
   const LAYER_ID = "moekoe-custom-app-bg-layer";
   const ENABLED_CLASS = "mk-custom-bg-enabled";
+  const LYRICS_ROUTE_PATTERN = /^#\/?lyrics(?:[/?]|$)/i;
   const DEFAULT_CONFIG = {
     enabled: false,
     imagePath: "",
@@ -66,11 +67,21 @@
     document.documentElement.classList.remove(ENABLED_CLASS);
   }
 
+  function isLyricsPage() {
+    const hash = window.location.hash || "";
+    if (LYRICS_ROUTE_PATTERN.test(hash)) {
+      return true;
+    }
+
+    const pathname = window.location.pathname || "";
+    return /\/lyrics\/?$/i.test(pathname);
+  }
+
   function applyBackground(rawConfig) {
     const config = normalizeConfig(rawConfig);
     const appRoot = document.getElementById("app");
 
-    if (!appRoot || !config.enabled || !config.imagePath) {
+    if (!appRoot || isLyricsPage() || !config.enabled || !config.imagePath) {
       disableBackground();
       return;
     }
