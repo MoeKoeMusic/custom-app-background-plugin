@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "自定义背景图",
   "plugin_id": "custom-app-background",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "minversion": "1.6.1",
   "moekoe": true,
   "author": {

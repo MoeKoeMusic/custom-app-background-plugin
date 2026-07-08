@@ -16,16 +16,27 @@ html.mk-custom-bg-enabled body {
 }
 
 html.mk-custom-bg-enabled {
-  --mk-surface-bg: rgba(255, 255, 255, 0.6);
-  --mk-surface-bg-weak: rgba(255, 255, 255, 0.62);
+  --mk-surface-bg: rgba(255, 255, 255, 0.58);
+  --mk-surface-bg-weak: rgba(255, 255, 255, 0.42);
+  --mk-surface-bg-strong: rgba(255, 255, 255, 0.72);
+  --mk-surface-transparent: rgba(255, 255, 255, 0);
+  --mk-control-bg: rgba(255, 255, 255, 0.5);
+  --mk-hover-bg: rgba(255, 255, 255, 0.68);
   --mk-surface-blur: 10px;
   --background-color: var(--mk-surface-bg) !important;
   --background-color-secondary: var(--mk-surface-bg-weak) !important;
+  --color-secondary-bg-for-transparent: var(--mk-hover-bg) !important;
 }
 
 html.dark.mk-custom-bg-enabled {
-  --mk-surface-bg: rgba(20, 20, 20, 0.66);
-  --mk-surface-bg-weak: rgba(20, 20, 20, 0.52);
+  --mk-surface-bg: rgba(20, 20, 20, 0.56);
+  --mk-surface-bg-weak: rgba(20, 20, 20, 0.36);
+  --mk-surface-bg-strong: rgba(20, 20, 20, 0.68);
+  --mk-surface-transparent: rgba(20, 20, 20, 0);
+  --mk-control-bg: rgba(34, 34, 34, 0.5);
+  --mk-hover-bg: rgba(56, 56, 56, 0.58);
+  filter: none !important;
+  mix-blend-mode: normal !important;
 }
 
 html.mk-custom-bg-enabled #app {
@@ -38,24 +49,222 @@ html.mk-custom-bg-enabled main {
   background: transparent !important;
 }
 
-html.mk-custom-bg-enabled header,
-html.mk-custom-bg-enabled .search-bar input,
-html.mk-custom-bg-enabled .profile,
-html.mk-custom-bg-enabled .profile-menu,
-html.mk-custom-bg-enabled .queue-list,
-html.mk-custom-bg-enabled .context-menu,
-html.mk-custom-bg-enabled .extension-item,
-html.mk-custom-bg-enabled .market-item,
-html.mk-custom-bg-enabled .song-item,
-html.mk-custom-bg-enabled .modal-content,
-html.mk-custom-bg-enabled .playlist-select-modal,
-html.mk-custom-bg-enabled .player-container,
-html.mk-custom-bg-enabled .playlist-grid .playlist-item,
-html.mk-custom-bg-enabled .skeleton-loader .skeleton-item,
-html.mk-custom-bg-enabled .discover-page .music-card{
+html.mk-custom-bg-enabled body #app :is(
+  .main-content-shell,
+  .page-route-view,
+  .container,
+  .discover-page,
+  .library-page,
+  .search-page,
+  .recommended-search-page,
+  .ranking-page,
+  .settings-page,
+  .login-page,
+  .detail-page,
+  .track-list-container,
+  .track-list,
+  .song-list,
+  .search-results
+) {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+html.mk-custom-bg-enabled body #app :is(.side-navigation, .side-top-actions) {
+  --side-surface: var(--mk-surface-bg-strong) !important;
+  --side-hover: var(--mk-hover-bg) !important;
+}
+
+html.mk-custom-bg-enabled body #app .container {
+  --home-playlist-card-bg: var(--mk-surface-bg) !important;
+  --home-song-card-bg: var(--mk-surface-bg) !important;
+  --home-song-hover-bg: var(--mk-hover-bg) !important;
+}
+
+html.mk-custom-bg-enabled body #app .home-recommendations-section {
+  --home-icon-card-bg: var(--mk-surface-bg) !important;
+  --home-icon-card-soft: var(--mk-hover-bg) !important;
+}
+
+html.mk-custom-bg-enabled body #app .library-page {
+  --library-favorite-card-bg: var(--mk-surface-bg) !important;
+  --library-favorite-card-hover-bg: var(--mk-hover-bg) !important;
+}
+
+html.mk-custom-bg-enabled body #app .discover-page {
+  --discover-switch-bg: var(--mk-surface-bg) !important;
+  --discover-switch-active-bg: var(--mk-control-bg) !important;
+}
+
+html.mk-custom-bg-enabled body #app :is(.discover-playlist-content, .discover-new-album-content) {
+  --discover-category-bg: var(--mk-surface-bg) !important;
+  --discover-main-bg: var(--mk-control-bg) !important;
+  --discover-sub-bg: var(--mk-control-bg) !important;
+  --discover-card-bg: var(--mk-surface-bg) !important;
+}
+
+html.mk-custom-bg-enabled body #app .discover-new-song-content {
+  --discover-page-bg: var(--mk-surface-bg) !important;
+  --discover-placeholder-bg: var(--mk-surface-bg) !important;
+}
+
+html.mk-custom-bg-enabled body #app .ranking-container {
+  --ranking-surface: var(--mk-surface-bg) !important;
+  --ranking-surface-soft: var(--mk-control-bg) !important;
+  --ranking-surface-muted: var(--mk-control-bg) !important;
+  --ranking-hover-surface: var(--mk-hover-bg) !important;
+  --ranking-chip-hover: var(--mk-hover-bg) !important;
+  --ranking-play-bg: var(--mk-surface-bg-strong) !important;
+  --ranking-selector-fade: linear-gradient(180deg, var(--mk-surface-transparent), var(--mk-surface-bg)) !important;
+}
+
+html.mk-custom-bg-enabled body #app :is(
+  header,
+  .app-header,
+  .side-navigation,
+  .side-top-actions,
+  .player-container,
+  .queue-popup,
+  .queue-list,
+  .context-menu,
+  .context-menu ul,
+  .profile-menu,
+  .side-profile-menu,
+  .modal-content,
+  .playlist-select-modal,
+  .playlist-select-list,
+  .dropdown-menu,
+  .batch-actions-menu,
+  .folder-history-menu,
+  .login-container,
+  .setting-card,
+  .shortcut-modal-content,
+  .risk-verify-card,
+  .onboarding-card
+) {
+  background: var(--mk-surface-bg-strong) !important;
+  background-color: var(--mk-surface-bg-strong) !important;
+  background-image: none !important;
+  backdrop-filter: blur(var(--mk-surface-blur)) !important;
+  -webkit-backdrop-filter: blur(var(--mk-surface-blur)) !important;
+}
+
+html.mk-custom-bg-enabled body #app :is(
+  .music-card,
+  .song-item,
+  .playlist-item,
+  .playlist-card,
+  .album-card,
+  .artist-card,
+  .mv-card,
+  .program-card,
+  .article-card,
+  .result-item,
+  .ranking-item,
+  .rank-selector-shell,
+  .rank-chip,
+  .category-container,
+  .discover-switch,
+  .discover-placeholder,
+  .placeholder-card,
+  .extension-item,
+  .market-item,
+  .empty-container,
+  .skeleton-loader .skeleton-item,
+  .skeleton-grid .skeleton-card,
+  .grid-skeleton .skeleton-grid .skeleton-grid-card
+) {
   background: var(--mk-surface-bg) !important;
   background-color: var(--mk-surface-bg) !important;
   background-image: none !important;
   backdrop-filter: blur(var(--mk-surface-blur)) !important;
   -webkit-backdrop-filter: blur(var(--mk-surface-blur)) !important;
+}
+
+html.mk-custom-bg-enabled body #app .detail-page :is(
+  .detail-sliver-header,
+  .track-list-header,
+  .track-list-header-row
+) {
+  background: var(--mk-surface-bg-strong) !important;
+  background-color: var(--mk-surface-bg-strong) !important;
+  background-image: none !important;
+  backdrop-filter: blur(var(--mk-surface-blur)) !important;
+  -webkit-backdrop-filter: blur(var(--mk-surface-blur)) !important;
+}
+
+html.mk-custom-bg-enabled body #app .detail-page .detail-sliver-spacer {
+  background: var(--mk-surface-bg-strong) !important;
+  background-color: var(--mk-surface-bg-strong) !important;
+  background-image: none !important;
+  backdrop-filter: blur(var(--mk-surface-blur)) !important;
+  -webkit-backdrop-filter: blur(var(--mk-surface-blur)) !important;
+}
+
+html.mk-custom-bg-enabled body #app :is(
+  .search-bar input,
+  input:not([type="range"]):not([type="checkbox"]):not([type="radio"]),
+  textarea,
+  select,
+  .search-input,
+  .form-input,
+  .prompt-input,
+  .risk-verify-input,
+  .shortcut-input,
+  .market-search,
+  .side-top-search,
+  .side-search,
+  .setting-card-value,
+  .scale-slider-container,
+  .compatibility-option
+) {
+  background: var(--mk-control-bg) !important;
+  background-color: var(--mk-control-bg) !important;
+  background-image: none !important;
+  backdrop-filter: blur(var(--mk-surface-blur)) !important;
+  -webkit-backdrop-filter: blur(var(--mk-surface-blur)) !important;
+}
+
+html.mk-custom-bg-enabled body #app :is(
+  .tab-button:not(.active),
+  .page-number:not(.active),
+  .pagination button:not(.active),
+  .category-tabs button:not(.active),
+  .fav-btn,
+  .more-btn,
+  .batch-action-btn:not(.active),
+  .view-mode-btn,
+  .sort-btn:not(.active),
+  .segmented-button:not(.active),
+  .close-btn-modal
+) {
+  background: var(--mk-control-bg) !important;
+  background-color: var(--mk-control-bg) !important;
+  background-image: none !important;
+}
+
+html.mk-custom-bg-enabled body #app :is(
+  .music-card:hover,
+  .song-item:hover,
+  .playlist-item:hover,
+  .playlist-card:hover,
+  .album-card:hover,
+  .artist-card:hover,
+  .mv-card:hover,
+  .result-item:hover,
+  .ranking-item:hover,
+  .rank-chip:hover,
+  .context-menu li:hover,
+  .profile-menu li a:hover,
+  .side-profile-menu li a:hover,
+  .batch-actions-menu li:hover,
+  .folder-history-item:hover,
+  .folder-history-item.active,
+  .li:hover,
+  .li.cover-view:hover
+) {
+  background: var(--mk-hover-bg) !important;
+  background-color: var(--mk-hover-bg) !important;
+  background-image: none !important;
 }
